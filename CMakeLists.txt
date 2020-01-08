@@ -3,7 +3,7 @@ project(fccedmlegacy CXX)
 
 set(FCCEDM_MAJOR_VERSION 0)
 set(FCCEDM_MINOR_VERSION 5)
-set(FCCEDM_PATCH_VERSION 1)
+set(FCCEDM_PATCH_VERSION 5)
 set(FCCEDM_VERSION
   ${FCCEDM_MAJOR_VERSION}.${FCCEDM_MINOR_VERSION})
 
@@ -16,7 +16,8 @@ if (NOT PODIOLIB)
 endif()
 link_directories(${podio_LIBRARY_DIR})
 
-execute_process(COMMAND python ${podio_CMAKE_DIR}/../python/podio_class_generator.py edm.yaml datamodel datamodel
+
+execute_process(COMMAND python ${podio_DIR}/../../../python/podio_class_generator.py edm.yaml datamodel datamodel
                 WORKING_DIRECTORY ${CMAKE_SOURCE_DIR})
 
 #--- Declare options -----------------------------------------------------------
